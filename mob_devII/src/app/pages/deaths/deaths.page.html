@@ -1,9 +1,29 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>deaths</ion-title>
+  <ion-toolbar  color="primary">
+    <ion-title>Deaths</ion-title>
+    <ion-toolbar color="dark">
+    <ion-searchbar></ion-searchbar>
+</ion-toolbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+        <ion-button (click)="toggleInfiniteScroll()" expand="block">
+    Toggle Infinite Scroll
+  </ion-button>
+    <ion-list>
+        <ion-item button detail lines="inset" *ngFor="let death of Deaths | async" (click)="openDetails(death-count)">
+        {{ death-count.death }}
+        </ion-item>
+        <ion-item *ngFor="let item of dataList">
+      <ion-label>{{item}}</ion-label>
+    </ion-item>
+    </ion-list>
+    
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
