@@ -12,7 +12,7 @@
     Toggle Infinite Scroll
   </ion-button>
     <ion-list>
-        <ion-item button detail lines="inset" *ngFor="let quotes of Quotes | async" (click)="openDetails(quote)">
+        <ion-item button detail lines="inset" *ngFor="let quotes of Quotes | async" (click)="openDetails(quotes)">
         {{ quote.author }}
         </ion-item>
         <ion-item *ngFor="let item of dataList">

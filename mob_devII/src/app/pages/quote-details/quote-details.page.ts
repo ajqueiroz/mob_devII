@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FavouriteService } from './../../services/favourite.service';
+import { ApiService } from './../../services/api.service';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { identifierModuleUrl } from '@angular/compiler';
+    
 @Component({
   selector: 'app-quote-details',
   templateUrl: './quote-details.page.html',
@@ -7,9 +12,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuoteDetailsPage implements OnInit {
 
-  constructor() { }
-
+   quotes: any;
+  isFavourite = false;
+  quotesId = null;
+ 
+  constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
+     private favouriteService: FavouriteService, private http: HttpClient) { }
+ 
   ngOnInit() {
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.quotesId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.http.get(`https://breakingbad.com/api/quotes/${id}`).subscribe(res => {
+      this.quotes = res;
+    });
+     this.api.getquote(this.quotesId).subscribe(res => {
+      this.quotes = res;
+    });
+ 
+ 
+    this.favouriteService.isFavourite(this.quotesId).then(isFav => {
+      this.isFavourite = isFav;
+    });
   }
+ 
+  favouriteQuote() {
+    this.favouriteService.favouriteQuotes(this.quotesId).then(() => {
+      this.isFavourite = true;
+    });
+  }
+ 
+  unfavouriteQuote() {
+    this.favouriteService.unfavouriteQuotes(this.quotesId).then(() => {
+      this.isFavourite = false;
+    });
+  }
+
 
 }

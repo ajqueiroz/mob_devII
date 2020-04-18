@@ -1,5 +1,7 @@
 {
   "name": "mob_devII",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
-
 @Component({
-  selector: 'app-deaths',
-  templateUrl: './deaths.page.html',
-  styleUrls: ['./deaths.page.scss'],
+    selector: 'app-deaths',
+    templateUrl: './deaths.page.html',
+    styleUrls: ['./deaths.page.scss'],
 })
 export class DeathsPage implements OnInit {
- deaths: Observable<any>;
+    deaths: Observable<any>;
     constructor(private router: Router, private api: ApiService) { }
     ngOnInit() {
         this.deaths = this.api.getdeath();
@@ -18,8 +17,7 @@ export class DeathsPage implements OnInit {
         }); //
     }
     openDetails(deaths) {
-        let deathId = deaths.death;
-       this.router.navigateByUrl(`/tabs/deaths/`);
+        let deathsId = deaths.deaths_id;
+       this.router.navigateByUrl(`/tabs/deaths/${deathsId}`);
     }
-
 }

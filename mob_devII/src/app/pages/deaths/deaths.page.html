@@ -6,20 +6,18 @@
 </ion-toolbar>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
         <ion-button (click)="toggleInfiniteScroll()" expand="block">
     Toggle Infinite Scroll
   </ion-button>
     <ion-list>
-        <ion-item button detail lines="inset" *ngFor="let death of Deaths | async" (click)="openDetails(death-count)">
-        {{ death-count.death }}
+        <ion-item button detail lines="inset" *ngFor="let death of Deaths | async" (click)="openDetails(deaths)">
+        {{ deaths.death }}
         </ion-item>
         <ion-item *ngFor="let item of dataList">
       <ion-label>{{item}}</ion-label>
     </ion-item>
     </ion-list>
-    
     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content
       loadingSpinner="bubbles"
