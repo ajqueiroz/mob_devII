@@ -28,8 +28,7 @@ export class QuoteDetailsPage implements OnInit {
      this.api.getquote(this.quotesId).subscribe(res => {
       this.quotes = res;
     });
- 
- 
+    
     this.favouriteService.isFavourite(this.quotesId).then(isFav => {
       this.isFavourite = isFav;
     });

@@ -16,7 +16,8 @@ export class CharactersDetailsPage implements OnInit {
   isFavourite = false;
   charactersId = null;
  
-  constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private favouriteService: FavouriteService, private http: HttpClient) { }
+  constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
+     private favouriteService: FavouriteService, private http: HttpClient) { }
  
   ngOnInit() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');

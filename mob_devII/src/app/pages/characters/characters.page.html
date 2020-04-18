@@ -2,7 +2,7 @@
   <ion-toolbar color="primary">
     <ion-title>Characters</ion-title>
     <ion-toolbar color="dark">
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar animated (ioninput)="filterList($event)" ></ion-searchbar>
 </ion-toolbar>
   </ion-toolbar>
 </ion-header>

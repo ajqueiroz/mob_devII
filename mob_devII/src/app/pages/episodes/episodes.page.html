@@ -2,11 +2,16 @@
   <ion-toolbar color="primary">
     <ion-title>Episodes</ion-title>
     <ion-toolbar color="dark">
-    <ion-searchbar></ion-searchbar>
+ <ion-searchbar animated (ioninput)="getTopics($event)" ></ion-searchbar>
 </ion-toolbar>
   </ion-toolbar>
 </ion-header>
 <ion-content>
+<ion-list>
+<ion-item *ngFor="let topic of topics">
+{{ topic }}
+</ion-item>
+</ion-list>
         <ion-button (click)="toggleInfiniteScroll()" expand="block">
     Toggle Infinite Scroll
   </ion-button>
