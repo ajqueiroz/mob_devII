@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { HttpClient } from '@angular/common/http';
 import {  NavController, NavParams } from '@ionic/angular';
+
 @Component({
     selector: 'app-episodes',
     templateUrl: './episodes.page.html',
@@ -24,7 +25,6 @@ export class EpisodesPage implements OnInit {
        this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
         let episodeTitle = episode.title;
        this.router.navigateByUrl(`/tabs/episodes/${episodeTitle}`);
-        this.navController.navigateRoot(`/tabs/episode-detais`)
   }
    goToCharacters() {
     this.navController.navigateRoot(`/tabs/characters`)
