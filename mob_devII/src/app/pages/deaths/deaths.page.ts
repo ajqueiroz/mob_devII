@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
+import { NavController } from '@ionic/angular';
+
 @Component({
     selector: 'app-deaths',
     templateUrl: './deaths.page.html',
@@ -9,7 +11,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class DeathsPage implements OnInit {
     deaths: Observable<any>;
-    constructor(private router: Router, private api: ApiService) { }
+    constructor(private navController: NavController, private router: Router, private api: ApiService) { }
     ngOnInit() {
         this.deaths = this.api.getdeath();
         this.deaths.subscribe(data => {
@@ -20,4 +22,7 @@ export class DeathsPage implements OnInit {
         let deathsId = deaths.deaths_id;
        this.router.navigateByUrl(`/tabs/deaths/${deathsId}`);
     }
+    goToEpisodes() {
+    this.navController.navigateRoot(`/tabs/episodes`)
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
+import { NavController } from '@ionic/angular';
 @Component({
     selector: 'app-episodes',
     templateUrl: './episodes.page.html',
@@ -9,7 +10,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class EpisodesPage implements OnInit {
     episodes: Observable<any>;
-    constructor(private router: Router, private api: ApiService) { }
+    constructor(private navController: NavController, private router: Router, private api: ApiService) { }
     ngOnInit() {
         this.episodes = this.api.getEpisodes();
         this.episodes.subscribe(data => {
@@ -19,5 +20,8 @@ export class EpisodesPage implements OnInit {
     openDetails(episode) {
         let episodeId = episode.episode_id;
        this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
+  }
+   goToCharacters() {
+    this.navController.navigateRoot(`/tabs/characters`)
     }
 }
