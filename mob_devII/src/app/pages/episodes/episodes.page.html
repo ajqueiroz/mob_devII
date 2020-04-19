@@ -7,6 +7,7 @@
 	</ion-toolbar>
 </ion-header>
 <ion-content>
+<ion-button ion-button full (click)="openDetails()">Go to Details</ion-button>
 	<ion-button expand="full" (click)="goToCharacters()">Switch to Characters</ion-button>
 		<ion-item *ngFor="let topic of topics">
 			{{ topic }}

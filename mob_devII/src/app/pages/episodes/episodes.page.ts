@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
-import { NavController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import {  NavController, NavParams } from '@ionic/angular';
 @Component({
     selector: 'app-episodes',
     templateUrl: './episodes.page.html',
@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EpisodesPage implements OnInit {
     episodes: Observable<any>;
-    constructor(private navController: NavController, private router: Router,
+    constructor( private navController: NavController, private router: Router,
          private api: ApiService, private http: HttpClient) { }
     ngOnInit() {
         this.episodes = this.api.getEpisodes();
@@ -24,6 +24,7 @@ export class EpisodesPage implements OnInit {
        this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
         let episodeTitle = episode.title;
        this.router.navigateByUrl(`/tabs/episodes/${episodeTitle}`);
+        this.navController.navigateRoot(`/tabs/episode-detais`)
   }
    goToCharacters() {
     this.navController.navigateRoot(`/tabs/characters`)
