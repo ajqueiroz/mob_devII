@@ -1,29 +1,29 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Quotes</ion-title>
-    <ion-toolbar color="dark">
-    <ion-searchbar></ion-searchbar>
-</ion-toolbar>
-  </ion-toolbar>
+	<ion-toolbar color="primary">
+		<ion-title>Quotes</ion-title>
+		<ion-toolbar color="dark">
+			<ion-searchbar color="white" animated (ioninput)="getTopics($event)"></ion-searchbar>
+		</ion-toolbar>
+	</ion-toolbar>
 </ion-header>
 <ion-content>
-<ion-button expand="full" (click)="goToDeaths()">Switch to Deaths</ion-button>
-        <ion-button (click)="toggleInfiniteScroll()" expand="block">
-    Toggle Infinite Scroll
-  </ion-button>
-    <ion-list>
-        <ion-item button detail lines="inset" *ngFor="let quotes of Quotes | async" (click)="openDetails(quotes)">
-        {{ quote.author }}
-        </ion-item>
-        <ion-item *ngFor="let item of dataList">
-      <ion-label>{{item}}</ion-label>
-    </ion-item>
-    </ion-list>
-    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="Loading more data...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+	<ion-button expand="full" (click)="goToDeaths()">Switch to Deaths</ion-button>
+		<ion-item *ngFor="let topic of topics">
+			{{ topic }}
+		</ion-item>
+	<ion-button (click)="toggleInfiniteScroll()" expand="block">
+		Toggle Infinite Scroll
+	</ion-button>
+	<ion-list>
+		<ion-item button detail lines="inset" *ngFor="let quote of quotes | async" (click)="openDetails(quotes)">
+			{{ quote.quote }}
+		</ion-item>
+		<ion-item *ngFor="let item of dataList">
+			<ion-label>{{item}}</ion-label>
+		</ion-item>
+	</ion-list>
+	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
 </ion-content>
- 

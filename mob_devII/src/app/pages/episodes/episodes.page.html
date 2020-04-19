@@ -1,33 +1,29 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Episodes</ion-title>
-    <ion-toolbar color="dark">
- <ion-searchbar animated (ioninput)="getTopics($event)" ></ion-searchbar>
-</ion-toolbar>
-  </ion-toolbar>
+	<ion-toolbar color="primary">
+		<ion-title>Episodes</ion-title>
+		<ion-toolbar color="dark">
+			<ion-searchbar color="white" animated (ioninput)="getTopics($event)"></ion-searchbar>
+		</ion-toolbar>
+	</ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-button expand="full" (click)="goToCharacters()">Switch to Characters</ion-button>
-<ion-list>
-<ion-item *ngFor="let topic of topics">
-{{ topic }}
-</ion-item>
-</ion-list>
-        <ion-button (click)="toggleInfiniteScroll()" expand="block">
-    Toggle Infinite Scroll
-  </ion-button>
-    <ion-list>
-        <ion-item button detail lines="inset" *ngFor="let episode of episodes | async" (click)="openDetails(episode)">
-        {{ episode.title }}
-        </ion-item>
-        <ion-item *ngFor="let item of dataList">
-      <ion-label>{{item}}</ion-label>
-    </ion-item>
-    </ion-list>
-    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="Loading more data...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+	<ion-button expand="full" (click)="goToCharacters()">Switch to Characters</ion-button>
+		<ion-item *ngFor="let topic of topics">
+			{{ topic }}
+		</ion-item>
+	<ion-button (click)="toggleInfiniteScroll()" expand="block">
+		Toggle Infinite Scroll
+	</ion-button>
+	<ion-list>
+		<ion-item button detail lines="inset" *ngFor="let episode of episodes | async" (click)="openDetails(episode)">
+			{{ episode.title }}
+		</ion-item>
+		<ion-item *ngFor="let item of dataList">
+			<ion-label>{{item}}</ion-label>
+		</ion-item>
+	</ion-list>
+	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
 </ion-content>

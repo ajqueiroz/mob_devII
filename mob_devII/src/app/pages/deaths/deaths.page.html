@@ -2,7 +2,7 @@
   <ion-toolbar  color="primary">
     <ion-title>Deaths</ion-title>
     <ion-toolbar color="dark">
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar color="white" animated (ioninput)="getTopics($event)" ></ion-searchbar>
 </ion-toolbar>
   </ion-toolbar>
 </ion-header>
@@ -11,11 +11,14 @@
         <ion-button (click)="toggleInfiniteScroll()" expand="block">
     Toggle Infinite Scroll
   </ion-button>
+   <ion-item *ngFor="let topic of topics">
+      <ion-label>{{ topics }}</ion-label>
+    </ion-item>
     <ion-list>
-        <ion-item button detail lines="inset" *ngFor="let death of Deaths | async" (click)="openDetails(deaths)">
+        <ion-item button detail lines="inset" *ngFor="let death of deaths | async" (click)="openDetails(deaths)">
         {{ death.death }}
         </ion-item>
-        <ion-item *ngFor="let item of dataList">
+       <ion-item *ngFor="let item of dataList">
       <ion-label>{{item}}</ion-label>
     </ion-item>
     </ion-list>

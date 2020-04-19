@@ -14,18 +14,18 @@
 </ion-header>
 <ion-content class="ion-padding">
     <ion-card *ngif="episodes" class="movie-card">
-    <ion-card-header>Episodes {{ episodes.episode_id }}: {{ episodes.title }}</ion-card-header>
+    <ion-card-header>Episodes {{ episode.episode_id }}: {{ episode.title }}</ion-card-header>
     <ion-card *ngIf="episodes">
   <ion-card-content>
     {{ episodes.opening_crawl }}
   </ion-card-content>
   <ion-item class="episode-info" lines="none">
       <ion-icon name="episode" slot="start"></ion-icon>
-      Director: {{ episodes.director }}
+      Series: {{ episodes.series }}
     </ion-item>
     <ion-item class="episode-info" lines="none">
       <ion-icon name="calendar" slot="start"></ion-icon>
-      Release Date: {{ episode.release_date | date }}
+      Air_Date: {{ episode.air_date | date }}
     </ion-item>
   </ion-card>
 </ion-card>

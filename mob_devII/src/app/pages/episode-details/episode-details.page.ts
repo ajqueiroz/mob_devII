@@ -16,7 +16,8 @@ export class EpisodeDetailsPage implements OnInit {
   isFavourite = false;
   episodesId = null;
  
-  constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private favouriteService: FavouriteService, private http: HttpClient) { }
+  constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
+     private favouriteService: FavouriteService, private http: HttpClient) { }
  
   ngOnInit() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
