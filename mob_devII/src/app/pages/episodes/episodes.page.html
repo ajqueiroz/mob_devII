@@ -1,8 +1,9 @@
 <ion-header>
 	<ion-toolbar color="primary">
-		<ion-title>Episodes</ion-title>
+		<ion-title *ngIf="!iSsearchBarOpend">Episodes</ion-title>
 		<ion-toolbar color="dark">
-			<ion-searchbar color="white" animated (ioninput)="getTopics($event)"></ion-searchbar>
+			<ion-searchbar color="white" animated (ioninput)="getTopics($event)">
+            </ion-searchbar>
 		</ion-toolbar>
 	</ion-toolbar>
 </ion-header>

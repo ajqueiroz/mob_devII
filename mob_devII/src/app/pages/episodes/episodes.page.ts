@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { HttpClient } from '@angular/common/http';
 import {  NavController, NavParams } from '@ionic/angular';
+import { EpisodesPageModule } from './episodes.module';
 
 @Component({
     selector: 'app-episodes',
@@ -11,6 +12,8 @@ import {  NavController, NavParams } from '@ionic/angular';
     styleUrls: ['./episodes.page.scss'],
 })
 export class EpisodesPage implements OnInit {
+    queryText: string;
+
     episodes: Observable<any>;
     constructor( private navController: NavController, private router: Router,
          private api: ApiService, private http: HttpClient) { }
@@ -28,5 +31,7 @@ export class EpisodesPage implements OnInit {
   }
    goToCharacters() {
     this.navController.navigateRoot(`/tabs/characters`)
+    
     }
+   
 }
