@@ -11,7 +11,7 @@
 <ion-item lines="none" padding="">
 		<img src="https://www.jamiesale-cartoonist.com/wp-content/uploads/breaking-bad-2.png" width="700" height="300">
 		</ion-item>
-<ion-button ion-button full (click)="openDetails()">Go to Details</ion-button>
+<ion-button ion-button full (click)="openDetails()" routerLink="/tabs/episodes/42" routerDirection="forward>Go to Details">Go to Details</ion-button>
 	<ion-button ion-button full (click)="goToCharacters()">Switch to Characters</ion-button>
     <ion-button ion-button full (click)="goToDeaths()">Switch Back to Deaths</ion-button>
     <ion-button ion-button full (click)="toggleInfiniteScroll()" >Toggle Infinite Scroll</ion-button>
