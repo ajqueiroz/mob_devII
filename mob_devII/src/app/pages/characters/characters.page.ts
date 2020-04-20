@@ -25,4 +25,8 @@ export class CharactersPage implements OnInit {
      goToQuotes() {
     this.navController.navigateRoot(`/tabs/quotes`)
   }
+  goToEpisodes() {
+    this.navController.navigateRoot(`/tabs/episodes`)
+    
+    }
 }

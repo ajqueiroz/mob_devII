@@ -25,4 +25,7 @@ export class QuotesPage implements OnInit {
     goToDeaths() {
     this.navController.navigateRoot(`/tabs/deaths`)
   }
+  goToCharacters() {
+    this.navController.navigateRoot(`/tabs/characters`)
+  }
 }

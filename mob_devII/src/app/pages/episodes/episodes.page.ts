@@ -24,11 +24,14 @@ export class EpisodesPage implements OnInit {
         }); //
     }
     openDetails(episode) {
-        let episodeId = episode.episode_id;
-       this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
+        let episodeTitle = episode.episode_id;
+       this.router.navigateByUrl(`/tabs/episodes/${episodeTitle}`);
   }
    goToCharacters() {
     this.navController.navigateRoot(`/tabs/characters`)
+    }
+    goToDeaths() {
+    this.navController.navigateRoot(`/tabs/deaths`)
     
     }
    
