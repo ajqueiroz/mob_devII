@@ -10,10 +10,9 @@
 <ion-item lines="none" padding="">
 		<img src="https://wallpapercave.com/wp/mupAKQn.jpg" width="500">
 		</ion-item>
-    <ion-button expand="full" (click)="goToEpisodes()">Switch to Episodes</ion-button>
-        <ion-button (click)="toggleInfiniteScroll()" expand="block">
-    Toggle Infinite Scroll
-  </ion-button>
+    <ion-button ion-button full (click)="openDetails()">Go to Details</ion-button>
+	<ion-button ion-button full (click)="goToEpisodes()">Switch to Episodes</ion-button>
+    <ion-button ion-button full (click)="toggleInfiniteScroll()" >Toggle Infinite Scroll</ion-button>
    <ion-item *ngFor="let topic of topics">
       <ion-label>{{ topics }}</ion-label>
     </ion-item>

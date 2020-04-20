@@ -12,13 +12,10 @@
 		<img src="https://www.jamiesale-cartoonist.com/wp-content/uploads/breaking-bad-2.png" width="700" height="300">
 		</ion-item>
 <ion-button ion-button full (click)="openDetails()">Go to Details</ion-button>
-	<ion-button expand="full" (click)="goToCharacters()">Switch to Characters</ion-button>
+	<ion-button ion-button full (click)="goToCharacters()">Switch to Characters</ion-button>
+    <ion-button ion-button full (click)="toggleInfiniteScroll()" >Toggle Infinite Scroll</ion-button>
 		<ion-item *ngFor="let topic of topics">
-			{{ topic }}
-		</ion-item>
-	<ion-button (click)="toggleInfiniteScroll()" expand="block">
-		Toggle Infinite Scroll
-	</ion-button>
+			{{ topic }}</ion-item>
 	<ion-list>
 		<ion-item button detail lines="inset" *ngFor="let episode of episodes | async" (click)="openDetails(episode)">
 			{{ episode.title }}

@@ -10,13 +10,10 @@
 <ion-item lines="none" padding="">
 		<img width src="https://skullsproject.files.wordpress.com/2014/02/breaking-bad-movie-wallpaper-background.png" width="500">
 		</ion-item>
-	<ion-button expand="full" (click)="goToDeaths()">Switch to Deaths</ion-button>
-		<ion-item *ngFor="let topic of topics">
-			{{ topic }}
-		</ion-item>
-	<ion-button (click)="toggleInfiniteScroll()" expand="block">
-		Toggle Infinite Scroll
-	</ion-button>
+	<ion-button ion-button full (click)="openDetails()">Go to Details</ion-button>
+	<ion-button ion-button full (click)="goToDeaths()">Switch to Deaths</ion-button>
+    <ion-button ion-button full (click)="toggleInfiniteScroll()" >Toggle Infinite Scroll</ion-button>
+		<ion-item *ngFor="let topic of topics">	{{ topic }}</ion-item>
 	<ion-list>
 		<ion-item button detail lines="inset" *ngFor="let quote of quotes | async" (click)="openDetails(quotes)">
 			{{ quote.quote }}
