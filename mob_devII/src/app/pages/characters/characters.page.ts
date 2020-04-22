@@ -14,9 +14,9 @@ export class CharactersPage implements OnInit {
     constructor(private navController: NavController, private router: Router, private api: ApiService) { }
     ngOnInit() {
         this.characters = this.api.getCharacters();
-        this.characters.subscribe(data => {
-            console.log('my data: ', data);
-        }); //
+      //  this.characters.subscribe(data => {
+         //   console.log('my data: ', data);
+     //   }); //
     }
     openDetails(characters) {
         let characterId = characters.character_id;

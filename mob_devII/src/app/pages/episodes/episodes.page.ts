@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
-import { HttpClient } from '@angular/common/http';
-import {  NavController, NavParams } from '@ionic/angular';
-import { EpisodesPageModule } from './episodes.module';
+import { NavController } from '@ionic/angular';
 
 @Component({
     selector: 'app-episodes',
@@ -12,27 +10,23 @@ import { EpisodesPageModule } from './episodes.module';
     styleUrls: ['./episodes.page.scss'],
 })
 export class EpisodesPage implements OnInit {
-    queryText: string;
-
     episodes: Observable<any>;
-    constructor( private navController: NavController, private router: Router,
-         private api: ApiService, private http: HttpClient) { }
+    constructor(private navController: NavController, private router: Router, private api: ApiService) { }
     ngOnInit() {
         this.episodes = this.api.getEpisodes();
-        this.episodes.subscribe(data => {
-            console.log('my data: ', data);
-        }); //
+      //  this.characters.subscribe(data => {
+         //   console.log('my data: ', data);
+     //   }); //
     }
-    openDetails(episode) {
-        let episodeTitle = episode.episode_title;
-       this.router.navigateByUrl(`/tabs/episodes/42`);
-  }
-   goToCharacters() {
+    openDetails(episodes) {
+        let episodesTitle = episodes.episodesTitle;
+       this.router.navigateByUrl(`/tabs/episode/${(episodesTitle)}`);
+    }
+     goToCharacters() {
     this.navController.navigateRoot(`/tabs/characters`)
-    }
-    goToDeaths() {
+  }
+  goToDeaths() {
     this.navController.navigateRoot(`/tabs/deaths`)
     
     }
-   
 }

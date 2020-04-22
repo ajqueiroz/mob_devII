@@ -1,89 +1,97 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+export enum SearchType {
+  all = '',
+  episodes = 'episodes',
+  quotes = 'quotes',
+  characters = 'characters'
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   constructor(private http: HttpClient) { }
+ 
   //Episodes APIs
   getEpisodes() {
-      return this.http.get(`https://www.breakingbadapi.com/api/episodes`)
+      return this.http.get(`https://www.breakingbadapi.com/api/episodes`);
   }
   getEpisodesTitle(title) {
-      return this.http.get(`https://www.breakingbadapi.com/api/episodes/${title}`)
+      return this.http.get(`https://www.breakingbadapi.com/api/episodes/${encodeURI(title)}`);
   }
   getEpisodesAir_date(air_date) {
-      return this.http.get(`https://www.breakingbadapi.com/api/episodes/${air_date}`)
+      return this.http.get(`https://www.breakingbadapi.com/api/episodes/${encodeURI(air_date)}`);
   }
   getEpisodesSeason(season) {
-      return this.http.get(`https://www.breakingbadapi.com/api/episodes/${season}`)
+      return this.http.get(`https://www.breakingbadapi.com/api/episodes/${encodeURI(season)}`);
   }
   getEpisodesCharacters(characters) {
-      return this.http.get(`https://www.breakingbadapi.com/api/episodes/${characters}`)
+      return this.http.get(`https://www.breakingbadapi.com/api/episodes/${encodeURI(characters)}`);
   }
   getEpisodesSeries(series) {
-      return this.http.get(`https://www.breakingbadapi.com/api/episodes/${series}`)
+      return this.http.get(`https://www.breakingbadapi.com/api/episodes/${encodeURI(series)}`);
   }
   getEpisode(id) {
-      return this.http.get(`https://breakingbadapi.com/api/episodes/${id}`)
+      return this.http.get(`https://breakingbadapi.com/api/episodes/${id}`);
   }
   //Characters APIs
   getCharacters() {
-      return this.http.get(`https://www.breakingbadapi.com/api/characters`)
+      return this.http.get(`https://www.breakingbadapi.com/api/characters`);
   }
     getCharacter(id) {
-      return this.http.get(`https://breakingbadapi.com/api/characters/${id}`)
+      return this.http.get(`https://breakingbadapi.com/api/characters/${id}`);
   }
   getCharacteCategory(category) {
-      return this.http.get(`https://breakingbadapi.com/api/characters/${category}`)
+      return this.http.get(`https://breakingbadapi.com/api/characters/${encodeURI(category)}`);
   }
   getCharacterPortrayed(portrayed) {
-      return this.http.get(`https://breakingbadapi.com/api/characters/${portrayed}`)
+      return this.http.get(`https://breakingbadapi.com/api/characters/${encodeURI(portrayed)}`);
   }
   getCharacterAppearance(appearance) {
-      return this.http.get(`https://breakingbadapi.com/api/characters/${appearance}`)
+      return this.http.get(`https://breakingbadapi.com/api/characters/${encodeURI(appearance)}`);
   }
   getCharacterBirthday(birthday) {
-      return this.http.get(`https://breakingbadapi.com/api/characters/${birthday}`)
+      return this.http.get(`https://breakingbadapi.com/api/characters/${encodeURI(birthday)}`);
   }
    getCharacterName(name) {
-      return this.http.get(`https://breakingbadapi.com/api/characters/${name}`)
+      return this.http.get(`https://breakingbadapi.com/api/characters/${encodeURI(name)}`);
   }
   //Quotes APIs
+  /**
+    * Data from the BreakingBad Api 
+    * code reference:  
+    * https://www.freecodecamp.org/news/how-to-build-your-first-ionic-4-app-with-api-calls-f6ea747dc17a/
+    */
   getquotes() {
-      return this.http.get(`https://www.breakingbadapi.com/api/quotes`)
+      return this.http.get(`https://www.breakingbadapi.com/api/quotes/`);
+  }
+    getquotes1(name: string) {
+      return this.http.get(`https://www.breakingbadapi.com/api/quotes${encodeURI(name)}`);
   }
   getquote(id) {
-      return this.http.get(`https://breakingbadapi.com/api/quotes/${id}`)
+      return this.http.get(`https://breakingbadapi.com/api/quotes/${id}`);
   }
   getquoteAuthor(author) {
-      return this.http.get(`https://breakingbadapi.com/api/quotes/${author}`)
+      return this.http.get(`https://breakingbadapi.com/api/quotes/${encodeURI(author)}`);
   }
   getquoteSeries(series) {
-      return this.http.get(`https://breakingbadapi.com/api/quotes/${series}`)
+      return this.http.get(`https://breakingbadapi.com/api/quotes/${encodeURI(series)}`);
   }
   getquoteQuote(quote) {
-      return this.http.get(`https://breakingbadapi.com/api/quotes/${quote}`)
+      return this.http.get(`https://breakingbadapi.com/api/quotes/${encodeURI(quote)}`);
+  }
+  getquoteQuoteId(id) {
+      return this.http.get(`https://breakingbadapi.com/api/quotes/${id}`);
   }
   //Death APIs
-  getdeath() {
-      return this.http.get(`https://www.breakingbadapi.com/api/deaths`)
-  }
-  getdeathId(id) {
-      return this.http.get(`https://breakingbadapi.com/api/deaths/${id}`)
+   getdeath() {
+      return this.http.get(`https://breakingbadapi.com/api/deaths/`);
   }
 
-  getdeathDeath(death) {
-      return this.http.get(`https://www.breakingbadapi.com/api/deaths/${death}`)
-  }
-   getdeathCause(cause) {
-      return this.http.get(`https://breakingbadapi.com/api/deaths/${cause}`)
-  }
-  getdeathSeason(season) {
-      return this.http.get(`https://breakingbadapi.com/api/deaths/${season}`)
-  }
-  getdeathEpisode(episode) {
-      return this.http.get(`https://breakingbadapi.com/api/deaths/${episode}`)
+  getdeath1(name: string) {
+      return this.http.get(`https://breakingbadapi.com/api/deaths/${encodeURI(name)}`);
   }
 
 }

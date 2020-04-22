@@ -20,13 +20,10 @@ export class EpisodeDetailsPage implements OnInit {
      private favouriteService: FavouriteService, private http: HttpClient) { }
  
   ngOnInit() {
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.episodesId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.http.get(`https://breakingbadapi.com/api/episodes/${id}`).subscribe(res => {
-      this.episodes = res;
-    });
+     this.episodesId = this.activatedRoute.snapshot.paramMap.get('id');
+
     this.api.getEpisode(this.episodesId).subscribe(res => {
-      this.episodes = res;
+      this.episodes = res[0];
     });
  
     this.favouriteService.isFavourite(this.episodesId).then(isFav => {

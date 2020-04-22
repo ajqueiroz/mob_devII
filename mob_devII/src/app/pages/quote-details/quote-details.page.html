@@ -3,30 +3,18 @@
       <ion-buttons slot="start">
       <ion-back-button defaulthref="/tabs/quotes"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ quotes?.author }}</ion-title>
+    <ion-title>  Quote Details</ion-title>
      <ion-buttons slot="end">
     <ion-button (click)="unfavouriteQuotes()" *ngIf="isFavourite">
-   <ion-icon name="star" slot="icon-only" color="secondary"></ion-icon>
+   <ion-icon name="star" slot="icon-only" ></ion-icon>
     </ion-button>
     <ion-button (click)="favouriteQuotes()" *ngIf="!isFavourite">
-     <ion-icon name="star-outline" slot="icon-only" color="secondary"></ion-icon>
+     <ion-icon name="star-outline" slot="icon-only"></ion-icon>
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-    <ion-card *ngif="quotes" class="movie-card">
-    <ion-card-header>Quotes {{ quotes.quotes_id }}: {{ quotes.author }}</ion-card-header>
-    <ion-card *ngIf="quotes">
-  <ion-card-content>
-    {{ quotes.opening_crawl }}
-  </ion-card-content>
-  <ion-item class="quotes-info" lines="none">
-      <ion-icon name="Quotes" slot="start"></ion-icon>
-      QuotesSeries: {{ quotes.series }}
-    </ion-item>
-    <ion-item class="quotes-info" lines="none">
-      <ion-icon name="calendar" slot="start"></ion-icon>
-      Author: {{ quotes.author }}
-    </ion-item>
+    <ion-card *ngif="quotes">
+    <ion-item> {{ quotes.quote }}</ion-item>
   </ion-card>
 </ion-card>
 </ion-content>

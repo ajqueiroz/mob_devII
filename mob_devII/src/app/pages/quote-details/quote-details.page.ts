@@ -21,12 +21,8 @@ export class QuoteDetailsPage implements OnInit {
  
   ngOnInit() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.quotesId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.http.get(`https://breakingbad.com/api/quotes/${id}`).subscribe(res => {
-      this.quotes = res;
-    });
      this.api.getquote(this.quotesId).subscribe(res => {
-      this.quotes = res;
+      this.quotes = res[0];
     });
     
     this.favouriteService.isFavourite(this.quotesId).then(isFav => {

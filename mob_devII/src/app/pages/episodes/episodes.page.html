@@ -1,32 +1,31 @@
 <ion-header>
-	<ion-toolbar color="primary">
-		<ion-title *ngIf="!iSsearchBarOpend">Episodes</ion-title>
-		<ion-toolbar color="dark">
-			<ion-searchbar color="white" animated (ioninput)="getTopics($event)">
-            </ion-searchbar>
-		</ion-toolbar>
-	</ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-title>Episodes</ion-title>
+    <ion-toolbar color="dark">
+   <ion-searchbar color="white" animated (ioninput)="getTopics($event)" ></ion-searchbar>
+</ion-toolbar>
+  </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content class="ion-padding">
 <ion-item lines="none" padding="">
-		<img src="https://www.jamiesale-cartoonist.com/wp-content/uploads/breaking-bad-2.png" width="700" height="300">
+		<img src="http://cdn.breathecast.com/data/images/full/24300/breaking-bad-title-card.png" width="500">
 		</ion-item>
-<ion-button ion-button full (click)="openDetails()" routerLink="/tabs/episodes/42" routerDirection="forward>Go to Details">Go to Details</ion-button>
-	<ion-button ion-button full (click)="goToCharacters()">Switch to Characters</ion-button>
-    <ion-button ion-button full (click)="goToDeaths()">Switch Back to Deaths</ion-button>
+  <ion-button width="25" lenght="25" ion-button full (click)="openDetails()" routerDirection="forward">Go to Details</ion-button>
+  <ion-button ion-button full (click)="goToCharacters()">Switch to Characters</ion-button>
+   <ion-button ion-button full (click)="goToDeaths()">Switch Back to Deaths</ion-button>
     <ion-button ion-button full (click)="toggleInfiniteScroll()" >Toggle Infinite Scroll</ion-button>
-		<ion-item *ngFor="let topic of topics">
-			{{ topic }}</ion-item>
-	<ion-list>
-		<ion-item button detail lines="inset" *ngFor="let episode of episodes | async" (click)="openDetails(episode)">
-			{{ episode.title }}
-		</ion-item>
-		<ion-item *ngFor="let item of dataList">
-			<ion-label>{{item}}</ion-label>
-		</ion-item>
-	</ion-list>
-	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
-		</ion-infinite-scroll-content>
-	</ion-infinite-scroll>
+    <ion-list>
+        <ion-item button detail lines="inset" *ngFor="let episode of episodes | async" (click)="openDetails(episode)">
+        {{ episode.title }}
+        </ion-item>
+        <ion-item *ngFor="let item of dataList">
+      <ion-label>{{episodes}}</ion-label>
+    </ion-item>
+    </ion-list>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

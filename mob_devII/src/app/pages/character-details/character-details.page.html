@@ -13,20 +13,12 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-    <ion-card *ngif="characters" class="movie-card">
-    <ion-card-header>Characters {{ characters.characters_id }}: {{ characters.name }}</ion-card-header>
+    <ion-card *ngif="characters">
+    <ion-card-header></ion-card-header>
     <ion-card *ngIf="characters">
   <ion-card-content>
-    {{ character.opening_crawl }}
+    {{ characters.character }}
   </ion-card-content>
-  <ion-item class="characters-info" lines="none">
-      <ion-icon name="Characters" slot="start"></ion-icon>
-      Actress: {{ character.portrayed }}
-    </ion-item>
-    <ion-item class="characters-info" lines="none">
-      <ion-icon name="calendar" slot="start"></ion-icon>
-      Category: {{ characters.category }}
-    </ion-item>
   </ion-card>
 </ion-card>
 </ion-content>

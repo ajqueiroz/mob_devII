@@ -19,8 +19,8 @@ export class QuotesPage implements OnInit {
         }); //
     }
     openDetails(quote) {
-        let quotesId = quote.quote_id;
-       this.router.navigateByUrl(`/tabs/quotes/${quotesId}`);
+        let quotes = quote.quote;
+       this.router.navigateByUrl(`/tabs/quotes/${quotes}`);
     }
     goToDeaths() {
     this.navController.navigateRoot(`/tabs/deaths`)
