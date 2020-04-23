@@ -9,7 +9,9 @@ import { NavController } from '@ionic/angular';
     templateUrl: './episodes.page.html',
     styleUrls: ['./episodes.page.scss'],
 })
+
 export class EpisodesPage implements OnInit {
+    
     episodes: Observable<any>;
     constructor(private navController: NavController, private router: Router, private api: ApiService) { }
     ngOnInit() {
@@ -19,9 +21,11 @@ export class EpisodesPage implements OnInit {
      //   }); //
     }
     openDetails(episodes) {
-        let episode = episodes.episode;
-       this.router.navigateByUrl(`/tabs/episodes/${(episodes)}`);
+        let episodeId = episodes.episodeId;
+       this.router.navigateByUrl(`/tabs/episodes/${(episodeId)}`);
     }
+
+
      goToCharacters() {
     this.navController.navigateRoot(`/tabs/characters`)
   }

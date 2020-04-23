@@ -15,7 +15,7 @@
     <ion-item ion-button full (click)="toggleInfiniteScroll()" ></ion-item>
     <ion-list>
         <ion-item button detail lines="inset" *ngFor="let episode of episodes | async" (click)="openDetails(episodes)">
-        {{ episode.title }}
+        {{ episode?.title }}
         </ion-item>
         <ion-item *ngFor="let item of dataList">
       <ion-label>{{episodes}}</ion-label>
