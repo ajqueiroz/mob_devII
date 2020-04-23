@@ -10,12 +10,11 @@
 <ion-item lines="none" padding="">
 		<img src="http://cdn.breathecast.com/data/images/full/24300/breaking-bad-title-card.png" width="500">
 		</ion-item>
-  <ion-button width="25" lenght="25" ion-button full (click)="openDetails()" routerLink="/tabs/episodes" routerDirection="forward">Go to Details</ion-button>
   <ion-button ion-button full (click)="goToCharacters()">Switch to Characters</ion-button>
    <ion-button ion-button full (click)="goToDeaths()">Switch Back to Deaths</ion-button>
     <ion-button ion-button full (click)="toggleInfiniteScroll()" >Toggle Infinite Scroll</ion-button>
     <ion-list>
-        <ion-item button detail lines="inset" *ngFor="let episode of episodes | async" (click)="openDetails(episode)">
+        <ion-item button detail lines="inset" *ngFor="let episode of episodes | async" (click)="openDetails(episodes)">
         {{ episode.title }}
         </ion-item>
         <ion-item *ngFor="let item of dataList">

@@ -19,8 +19,8 @@ export class EpisodesPage implements OnInit {
      //   }); //
     }
     openDetails(episodes) {
-        let episodesTitle = episodes.episodesTitle;
-       this.router.navigateByUrl(`/tabs/episode/${(episodesTitle)}`);
+        let episode = episodes.episode;
+       this.router.navigateByUrl(`/tabs/episodes/${(episodes)}`);
     }
      goToCharacters() {
     this.navController.navigateRoot(`/tabs/characters`)
