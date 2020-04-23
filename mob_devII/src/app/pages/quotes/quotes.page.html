@@ -10,17 +10,15 @@
 <ion-item lines="none" padding="">
 		<img width src="https://skullsproject.files.wordpress.com/2014/02/breaking-bad-movie-wallpaper-background.png" width="500">
 		</ion-item>
-	<ion-button ion-button full (click)="openDetails()">Go to Details</ion-button>
-	<ion-button ion-button full (click)="goToDeaths()">Switch to Deaths</ion-button>
+	  <ion-item ion-button full (click)="toggleInfiniteScroll()" ></ion-item>
+      <ion-button ion-button full (click)="goToDeaths()">Switch to Deaths</ion-button>
     <ion-button ion-button full (click)="goToCharacters()">Switch Back to Characters</ion-button>
-    <ion-button ion-button full (click)="toggleInfiniteScroll()" >Toggle Infinite Scroll</ion-button>
-		<ion-item *ngFor="let topic of topics">	{{ topic }}</ion-item>
 	<ion-list>
 		<ion-item button detail lines="inset" *ngFor="let quote of quotes | async" (click)="openDetails(quotes)">
 			{{ quote.quote }}
 		</ion-item>
 		<ion-item *ngFor="let item of dataList">
-			<ion-label>{{item}}</ion-label>
+			<ion-label>{{quote}}</ion-label>
 		</ion-item>
 	</ion-list>
 	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">

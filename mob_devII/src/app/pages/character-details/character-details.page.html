@@ -1,24 +1,32 @@
 <ion-header>
   <ion-toolbar color="primary">
-      <ion-buttons slot="start">
+    <ion-buttons slot="start" defaultHref="/tabs/characters">
       <ion-back-button defaulthref="/tabs/characters"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ characters?.name }}</ion-title>
-     <ion-buttons slot="end">
-    <ion-button (click)="unfavouriteCharacters()" *ngIf="isFavourite">
-   <ion-icon name="star" slot="icon-only" color="secondary"></ion-icon>
-    </ion-button>
-    <ion-button (click)="favouriteCharacters()" *ngIf="!isFavourite">
-     <ion-icon name="star-outline" slot="icon-only" color="secondary"></ion-icon>
+    <ion-title>{{ character?.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="unfavoritecharacter()" *ngIf="isFavorite">
+        <ion-icon name="star" slot="icon-only" color="secondary"></ion-icon>
+      </ion-button>
+      <ion-button (click)="favoritecharacter()" *ngIf="!isFavorite">
+        <ion-icon name="star-outline" slot="icon-only" color="secondary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
-    <ion-card *ngif="characters">
-    <ion-card-header></ion-card-header>
-    <ion-card *ngIf="characters">
-  <ion-card-content>
-    {{ characters.character }}
-  </ion-card-content>
+<ion-content padding>
+  <ion-card *ngIf="character" class="movie-card">
+    <ion-card-header>Character {{ characters.name }}:{{ characters.occupation }}</ion-card-header>
+    <ion-card-content>
+      {{ character.appearance }}
+    </ion-card-content>
+    <ion-item class="movie-info" lines="none">
+      <ion-icon name="episode" slot="start"></ion-icon>
+      Actor/Actress: {{ characters.portrayed }}
+    </ion-item>
+    <ion-item class="movie-info" lines="none">
+      <ion-icon name="calendar" slot="start"></ion-icon>
+      Category: {{ characters.category }}
+    </ion-item>
   </ion-card>
-</ion-card>
 </ion-content>

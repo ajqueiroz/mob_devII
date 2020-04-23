@@ -1,20 +1,32 @@
 <ion-header>
   <ion-toolbar color="primary">
-      <ion-buttons slot="start">
+    <ion-buttons slot="start" defaultHref="/tabs/quotes">
       <ion-back-button defaulthref="/tabs/quotes"></ion-back-button>
     </ion-buttons>
-    <ion-title>  Quote Details</ion-title>
-     <ion-buttons slot="end">
-    <ion-button (click)="unfavouriteQuotes()" *ngIf="isFavourite">
-   <ion-icon name="star" slot="icon-only" ></ion-icon>
-    </ion-button>
-    <ion-button (click)="favouriteQuotes()" *ngIf="!isFavourite">
-     <ion-icon name="star-outline" slot="icon-only"></ion-icon>
+    <ion-title>{{ quotes?.title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="unfavoritequotes()" *ngIf="isFavorite">
+        <ion-icon name="star" slot="icon-only" color="secondary"></ion-icon>
+      </ion-button>
+      <ion-button (click)="favoritequotes()" *ngIf="!isFavorite">
+        <ion-icon name="star-outline" slot="icon-only" color="secondary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
-    <ion-card *ngif="quotes">
-    <ion-item> {{ quotes.quote }}</ion-item>
+<ion-content padding>
+  <ion-card *ngIf="quotes" class="movie-card">
+    <ion-card-header>Quote {{ quotes.author }}:{{ quotes.quote }}</ion-card-header>
+    <ion-card-content>
+      {{ quotes.series }}
+    </ion-card-content>
+    <ion-item class="movie-info" lines="none">
+      <ion-icon name="quotes" slot="start"></ion-icon>
+      Author: {{ quotes.author }}
+    </ion-item>
+    <ion-item class="movie-info" lines="none">
+      <ion-icon name="calendar" slot="start"></ion-icon>
+      Quote ID: {{ quotes.id }}
+    </ion-item>
   </ion-card>
-</ion-card>
 </ion-content>

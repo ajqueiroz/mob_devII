@@ -12,7 +12,7 @@
 		</ion-item>
   <ion-button ion-button full (click)="goToCharacters()">Switch to Characters</ion-button>
    <ion-button ion-button full (click)="goToDeaths()">Switch Back to Deaths</ion-button>
-    <ion-button ion-button full (click)="toggleInfiniteScroll()" >Toggle Infinite Scroll</ion-button>
+    <ion-item ion-button full (click)="toggleInfiniteScroll()" ></ion-item>
     <ion-list>
         <ion-item button detail lines="inset" *ngFor="let episode of episodes | async" (click)="openDetails(episodes)">
         {{ episode.title }}
