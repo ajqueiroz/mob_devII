@@ -13,14 +13,14 @@ export class DeathsPage implements OnInit {
     deaths: Observable<any>;
     constructor(private navController: NavController, private router: Router, private api: ApiService) { }
     ngOnInit() {
-        this.deaths = this.api.getdeath();
+         this.deaths = this.api.getdeath();
         this.deaths.subscribe(data => {
             console.log('my data: ', data);
         }); //
     }
-    openDetails(deaths) {
-        let deathsId = deaths.deaths_id;
-       this.router.navigateByUrl(`/tabs/deaths/${deathsId}`);
+    openDetails(death) {
+        let quotes = death.death;
+       this.router.navigateByUrl(`/tabs/death/${death}`);
     }
     goToEpisodes() {
     this.navController.navigateRoot(`/tabs/episodes`)

@@ -16,27 +16,27 @@ export class FavouriteService {
     return this.storage.get(STORAGE_KEY);
   }
  
-  isFavourite(episodesId) {
+  isFavourite(episodesTitle) {
     return this.getAllFavouriteEpisodes().then(result => {
-      return result && result.indexOf(episodesId) !== -1;
+      return result && result.indexOf(episodesTitle) !== -1;
     });
   }
  
-  favouriteEpisodes(episodesId) {
+  favouriteEpisodes(episodesTitle) {
     return this.getAllFavouriteEpisodes().then(result => {
       if (result) {
-        result.push(episodesId);
+        result.push(episodesTitle);
         return this.storage.set(STORAGE_KEY, result);
       } else {
-        return this.storage.set(STORAGE_KEY, [episodesId]);
+        return this.storage.set(STORAGE_KEY, [episodesTitle]);
       }
     });
   }
  
-  unfavouriteEpisodes(episodesId) {
+  unfavouriteEpisodes(episodesTitle) {
     return this.getAllFavouriteEpisodes().then(result => {
       if (result) {
-        var index = result.indexOf(episodesId);
+        var index = result.indexOf(episodesTitle);
         result.splice(index, 1);
         return this.storage.set(STORAGE_KEY, result);
       }
