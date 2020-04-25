@@ -1,32 +1,18 @@
 <ion-header>
-  <ion-toolbar  color="primary">
-    <ion-title>Deaths</ion-title>
-    <ion-toolbar color="dark">
-    <ion-searchbar color="white" animated (ioninput)="getTopics($event)" ></ion-searchbar>
-</ion-toolbar>
-  </ion-toolbar>
+	<ion-toolbar color="primary">
+		<ion-title>Deaths</ion-title>
+	</ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
-<ion-item lines="none" padding="">
+<ion-content>
+	<ion-searchbar color="white" [(ngModel)]="terms"></ion-searchbar>
+	<ion-item lines="none" padding="">
 		<img src="https://wallpapercave.com/wp/mupAKQn.jpg" width="500"></ion-item>
-	<ion-button ion-button full (click)="goToEpisodes()">Switch to Episodes</ion-button>
-    <ion-button ion-button full (click)="goToQuotes()">Switch Back to Quotes</ion-button>
-    <ion-item ion-button full (click)="toggleInfiniteScroll()" ></ion-item>
-   <ion-item *ngFor="let topic of topics">
-      <ion-label>{{ topics }}</ion-label>
-    </ion-item>
-    <ion-list>
-        <ion-item button detail lines="inset" *ngFor="let death of deaths | async" (click)="openDetails(deaths)">
-        {{ death.death }}
-        </ion-item>
-       <ion-item *ngFor="let item of dataList">
-      <ion-label>{{item}}</ion-label>
-    </ion-item>
-    </ion-list>
-    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="Loading more data...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+        	<ion-button ion-button full (click)="goToEpisodes()" ion-button color="secondary" ><strong>Switch to Episodes</strong></ion-button>
+    <ion-button ion-button full (click)="goToQuotes()"ion-button color="secondary" ><strong>Switch Back to Quotes</strong></ion-button>
+		<ion-list>
+			<ion-item button detail lines="inset" *ngFor="let death of deaths | async" (click)="openDetails(deaths)">
+				{{ death.death }}
+			</ion-item>
+		</ion-list>
+	
 </ion-content>

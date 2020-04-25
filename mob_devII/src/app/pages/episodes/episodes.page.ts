@@ -3,33 +3,34 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { NavController } from '@ionic/angular';
-
+import { IonInfiniteScroll } from '@ionic/angular';
 @Component({
     selector: 'app-episodes',
     templateUrl: './episodes.page.html',
     styleUrls: ['./episodes.page.scss'],
 })
-
 export class EpisodesPage implements OnInit {
-    
+
     episodes: Observable<any>;
-    constructor(private navController: NavController, private router: Router, private api: ApiService) { }
+
+
+    constructor(private navController: NavController,private router: Router, private api: ApiService) { }
+
     ngOnInit() {
         this.episodes = this.api.getEpisodes();
-      //  this.characters.subscribe(data => {
-         //   console.log('my data: ', data);
-     //   }); //
-    }
-    openDetails(episodes) {
-        let episodeId = episodes.episodeId;
-       this.router.navigateByUrl(`/tabs/episodes/${(episodeId)}`);
+        this.episodes.subscribe(data => {
+        console.log('my data', data);
+        });
     }
 
-
-     goToCharacters() {
+    openDetails(episode) {
+        let episodeId = episode.episode_id;        
+        this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
+    }
+   goToCharacters() {
     this.navController.navigateRoot(`/tabs/characters`)
   }
-  goToDeaths() {
+  goToDeath() {
     this.navController.navigateRoot(`/tabs/deaths`)
     
     }

@@ -29,16 +29,16 @@ export class EpisodeDetailsPage implements OnInit {
     });
   }
  
-//   favouriteEpisode() {
-//     this.favouriteService.favouriteEpisode(this.episodeId).then(() => {
-//       this.isFavourite = true;
-//     });
-//   }
+  favouriteEpisode() {
+    this.favouriteService.favouriteEpisode(this.episodeId).then(() => {
+      this.isFavourite = true;
+    });
+  }
  
-//   unfavouriteEpisode() {
-//     this.favouriteService.unfavouriteEpisode(this.episodeId).then(() => {
-//       this.isFavourite = false;
-//     });
-//   }
+  unfavouriteEpisode() {
+    this.favouriteService.unfavouriteEpisode(this.episodeId).then(() => {
+      this.isFavourite = false;
+    });
+  }
  
 }

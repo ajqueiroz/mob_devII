@@ -51,6 +51,10 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: () => import('../deaths/deaths.module').then(m => m.DeathsPageModule)
+                    },
+                    {
+                        path: ':id',
+                        loadChildren: () => import('../death-details/death-details.module').then(m => m.DeathDetailsPageModule)
                     }
                 ]
             }
@@ -63,7 +67,8 @@ const routes: Routes = [
     }
 ];
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }
+

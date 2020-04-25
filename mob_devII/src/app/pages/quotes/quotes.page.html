@@ -1,28 +1,18 @@
 <ion-header>
 	<ion-toolbar color="primary">
 		<ion-title>Quotes</ion-title>
-		<ion-toolbar color="dark">
-			<ion-searchbar color="white" animated (ioninput)="getTopics($event)"></ion-searchbar>
-		</ion-toolbar>
 	</ion-toolbar>
 </ion-header>
+
 <ion-content>
-	<ion-item lines="none" padding="">
-		<img width src="https://skullsproject.files.wordpress.com/2014/02/breaking-bad-movie-wallpaper-background.png" width="500">
-		</ion-item>
-		<ion-button ion-button full (click)="goToDeaths()">Switch to Deaths</ion-button>
-		<ion-button ion-button full (click)="goToCharacters()"> Go back to Characters</ion-button>
+	<ion-searchbar color="white" [(ngModel)]="terms"></ion-searchbar>
+	<img src="https://skullsproject.files.wordpress.com/2014/02/breaking-bad-movie-wallpaper-background.png" width="500">
+	<ion-list>
+		<ion-button ion-button full (click)="goToDeaths()" ion-button color="secondary" ><strong>Switch to Deaths</strong></ion-button>
+		<ion-button ion-button full (click)="goToCharacters()" ion-button color="secondary" ><strong> Go back to Characters</strong></ion-button>
 		<ion-item ion-button full (click)="toggleInfiniteScroll()"></ion-item>
-		<ion-list>
-			<ion-item button detail lines="inset" *ngFor="let quote of quotes | async" (click)="openDetails(quotes)">
-				{{ quote.quote }}
-			</ion-item>
-			<ion-item *ngFor="let item of dataList">
-				<ion-label>{{quotes}}</ion-label>
-			</ion-item>
-		</ion-list>
-		<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-			<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
-			</ion-infinite-scroll-content>
-		</ion-infinite-scroll>
+		<ion-item button detail lines="inset" *ngFor="let quote of quotes | async" (click)="openDetails(quote)">
+			{{ quote.quote }}
+		</ion-item>
+	</ion-list>
 </ion-content>
