@@ -1,32 +1,27 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start" defaultHref="/tabs/quotes">
-      <ion-back-button defaulthref="/tabs/quotes"></ion-back-button>
-    </ion-buttons>
-    <ion-title>{{ quotes?.title }}</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="unfavoritequotes()" *ngIf="isFavorite">
-        <ion-icon name="star" slot="icon-only" color="secondary"></ion-icon>
-      </ion-button>
-      <ion-button (click)="favoritequotes()" *ngIf="!isFavorite">
-        <ion-icon name="star-outline" slot="icon-only" color="secondary"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-back-button defaulthref="/tabs/quotes"></ion-back-button>
+		</ion-buttons>
+		<ion-title color="secondary"><strong>Quotes Details </strong></ion-title>
+	</ion-toolbar>
 </ion-header>
-<ion-content padding>
-  <ion-card *ngIf="quotes" class="movie-card">
-    <ion-card-header>Quote {{ quotes.author }}:{{ quotes.quote }}</ion-card-header>
-    <ion-card-content>
-      {{ quotes.series }}
-    </ion-card-content>
-    <ion-item class="movie-info" lines="none">
-      <ion-icon name="quotes" slot="start"></ion-icon>
-      Author: {{ quotes.author }}
-    </ion-item>
-    <ion-item class="movie-info" lines="none">
-      <ion-icon name="calendar" slot="start"></ion-icon>
-      Quote ID: {{ quotes.id }}
-    </ion-item>
-  </ion-card>
+
+<ion-content>
+	<ion-card *ngIf="quote">
+		<ion-card-content>
+			<strong >Author: {{ quote.author }} </strong>
+		</ion-card-content>
+	</ion-card>
+	<ion-card *ngIf="quote">
+		<ion-card-content>
+			<strong>Series: {{ quote.series }} </strong>
+		</ion-card-content>
+	</ion-card>
+	<ion-card *ngIf="quote">
+		<ion-card-content>
+			<strong>Quote: {{ quote.quote }} </strong>
+		</ion-card-content>
+	</ion-card>
+	<img class="custom-class" src="https://i.ytimg.com/vi/H0W9OzWnprI/maxresdefault.jpg" width="500">
 </ion-content>

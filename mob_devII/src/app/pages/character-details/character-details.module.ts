@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { CharacterDetailsPageRoutingModule } from './character-details-routing.module';
 
-import { CharactersDetailsPage } from './character-details.page';
+import { CharacterDetailsPage } from './character-details.page';
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { CharactersDetailsPage } from './character-details.page';
     IonicModule,
     CharacterDetailsPageRoutingModule
   ],
-  declarations: [CharactersDetailsPage]
+  declarations: [CharacterDetailsPage]
 })
 export class CharacterDetailsPageModule {}
