@@ -1,0 +1,27 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-back-button defaulthref="/tabs/death"></ion-back-button>
+		</ion-buttons>
+		<ion-title color="secondary"><strong>Deaths Details </strong></ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card *ngIf="death">
+		<ion-card-content>
+			<strong>Season: {{ death.season}},  <p> Number of Deaths:{{ death.episode}} </p></strong>
+		</ion-card-content> 
+        </ion-card>
+	<ion-card *ngIf="death">
+		<ion-card-content>
+			<strong>Responsible of Death: {{ death.responsible}},  <p>Death Cause:{{ death.cause}} </p></strong>
+		</ion-card-content> 
+	</ion-card>
+    <ion-card *ngIf="death">
+		<ion-card-content>
+			<strong>Death Count: {{ death.number_of_deaths}}, <p> Name of Deceased: </p>{{ death.death}} </strong>
+		</ion-card-content> 
+    </ion-card>
+    <img class="custom-class" src="https://68.media.tumblr.com/5c84ccc74e2048fb025ece8bf373e733/tumblr_muxwcnkFsG1qzpxx1o4_r1_1280.jpg" width="500">
+</ion-content>
