@@ -1,30 +1,28 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Characters</ion-title>
-    <ion-toolbar color="dark">
-   <ion-searchbar color="white" animated (ioninput)="getTopics($event)" ></ion-searchbar>
-</ion-toolbar>
-  </ion-toolbar>
+	<ion-toolbar color="primary">
+		<ion-title>Characters</ion-title>
+	</ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
+
+<ion-content>
+	<ion-searchbar color="white" [(ngModel)]="terms"></ion-searchbar>
 <ion-item lines="none" padding="">
 		<img src="https://wallpapertag.com/wallpaper/full/8/a/e/467321-breaking-bad-wallpaper-1920x1080-1920x1080-for-meizu.jpg" width="500">
 		</ion-item>
-  <ion-button ion-button full (click)="goToQuotes()">Switch to Quotes</ion-button>
-   <ion-button ion-button full (click)="goToEpisodes()">Switch Back to Episodes</ion-button>
+        <ion-button ion-button full (click)="goToQuotes()"ion-button color="secondary" ><strong>Switch to Quotes</strong></ion-button>
+   <ion-button ion-button full (click)="goToEpisodes()" ion-button color="secondary" ><strong>Switch Back to Episodes</strong></ion-button>
     <ion-item ion-button full (click)="toggleInfiniteScroll()" ></ion-item>
-    <ion-list>
-        <ion-item button detail lines="inset" *ngFor="let characters of characters | async" (click)="openDetails(characters)">
-        {{ characters.name }}
-        </ion-item>
-        <ion-item *ngFor="let item of dataList">
-      <ion-label>{{item}}</ion-label>
-    </ion-item>
-    </ion-list>
-    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+	<ion-list>
+		<ion-item button detail lines="inset" *ngFor="let character of characters | async"
+			(click)="openDetails(character)">
+			{{ character.name }}
+		</ion-item>
+	</ion-list>
+     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content
       loadingSpinner="bubbles"
       loadingText="Loading more data...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
+
 </ion-content>

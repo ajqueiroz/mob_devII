@@ -1,46 +1,44 @@
+import { FavouriteService } from '../../services/favourite.service';
 import { Component, OnInit } from '@angular/core';
-import { FavouriteService } from './../../services/favourite.service';
-import { ApiService } from './../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { identifierModuleUrl } from '@angular/compiler';
+import { ApiService } from '../../services/api.service';
 
 @Component({
-  selector: 'app-episode-details',
-  templateUrl: './episode-details.page.html',
-  styleUrls: ['./episode-details.page.scss'],
+    selector: 'app-episode-details',
+    templateUrl: './episode-details.page.html',
+    styleUrls: ['./episode-details.page.scss'],
 })
 export class EpisodeDetailsPage implements OnInit {
 
- episodes: any;
-  isFavourite = false;
-  episodesId = null;
- 
-  constructor(private activatedRoute: ActivatedRoute, private api: ApiService,
-     private favouriteService: FavouriteService, private http: HttpClient) { }
- 
+    episode: any;
+    isFavourite = false;
+    episodeId = null;
+
+    constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private favouriteService: FavouriteService) { }
+
   ngOnInit() {
-     this.episodesId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.api.getEpisode(this.episodesId).subscribe(res => {
-      this.episodes = res[0];
+
+    this.episodeId = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.api.getEpisode(this.episodeId).subscribe(res => {
+      this.episode = res[0];
     });
- 
-    this.favouriteService.isFavourite(this.episodesId).then(isFav => {
+
+    this.favouriteService.isFavourite(this.episodeId).then(isFav => {
       this.isFavourite = isFav;
     });
   }
  
-  favouriteEpisode() {
-    this.favouriteService.favouriteEpisodes(this.episodesId).then(() => {
-      this.isFavourite = true;
-    });
-  }
+//   favouriteEpisode() {
+//     this.favouriteService.favouriteEpisode(this.episodeId).then(() => {
+//       this.isFavourite = true;
+//     });
+//   }
  
-  unfavouriteEpisode() {
-    this.favouriteService.unfavouriteEpisodes(this.episodesId).then(() => {
-      this.isFavourite = false;
-    });
-  }
+//   unfavouriteEpisode() {
+//     this.favouriteService.unfavouriteEpisode(this.episodeId).then(() => {
+//       this.isFavourite = false;
+//     });
+//   }
  
-
 }

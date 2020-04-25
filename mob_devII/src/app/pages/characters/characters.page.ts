@@ -5,22 +5,26 @@ import { ApiService } from '../../services/api.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
-    selector: 'app-characters',
-    templateUrl: './characters.page.html',
-    styleUrls: ['./characters.page.scss'],
+  selector: 'app-characters',
+  templateUrl: './characters.page.html',
+  styleUrls: ['./characters.page.scss'],
 })
 export class CharactersPage implements OnInit {
+
     characters: Observable<any>;
-    constructor(private navController: NavController, private router: Router, private api: ApiService) { }
+
+    constructor(private navController: NavController,private router: Router, private api: ApiService) { }
+
     ngOnInit() {
         this.characters = this.api.getCharacters();
-      //  this.characters.subscribe(data => {
-         //   console.log('my data: ', data);
-     //   }); //
+        this.characters.subscribe(data => {
+        console.log('my data', data);
+        });
     }
-    openDetails(characters) {
-        let characterId = characters.character_id;
-       this.router.navigateByUrl(`/tabs/characters/${characterId}`);
+
+    openDetails(character) {
+        let characterId = character.char_id;        
+        this.router.navigateByUrl(`/tabs/characters/${characterId}`);
     }
      goToQuotes() {
     this.navController.navigateRoot(`/tabs/quotes`)
