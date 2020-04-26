@@ -4,7 +4,10 @@
 	</ion-toolbar>
 </ion-header>
 <ion-content>
-	<ion-searchbar color="white" [(ngModel)]="terms"></ion-searchbar>
+	<ion-searchbar  disabled="false" color="white" (ionInput)="getItems($event)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let item of items"> {{ item }}</ion-item>
+</ion-list>
 	<ion-item lines="none" padding="">
 		<img src="https://wallpapercave.com/wp/mupAKQn.jpg" width="500"></ion-item>
         	<ion-button ion-button full (click)="goToEpisodes()" ion-button color="secondary" ><strong>Switch to Episodes</strong></ion-button>

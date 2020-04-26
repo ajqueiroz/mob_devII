@@ -3,9 +3,11 @@
 		<ion-title>Quotes</ion-title>
 	</ion-toolbar>
 </ion-header>
-
 <ion-content>
-	<ion-searchbar color="white" [(ngModel)]="terms"></ion-searchbar>
+	<ion-searchbar  disabled="false" color="white" (ionInput)="getItems($event)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let item of items"> {{ item }}</ion-item>
+</ion-list>
 	<img src="https://skullsproject.files.wordpress.com/2014/02/breaking-bad-movie-wallpaper-background.png" width="500">
 	<ion-list>
 		<ion-button ion-button full (click)="goToDeaths()" ion-button color="secondary" ><strong>Switch to Deaths</strong></ion-button>
