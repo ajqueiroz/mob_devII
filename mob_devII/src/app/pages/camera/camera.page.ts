@@ -28,4 +28,3 @@ export class CameraPage {
     this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
   }
 }
-
